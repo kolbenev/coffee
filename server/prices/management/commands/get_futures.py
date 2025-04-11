@@ -1,14 +1,13 @@
 import asyncio
-from datetime import datetime
 
 from aiohttp import ClientSession
-from django.core.management.base import BaseCommand
-from prices.models import CoffeePrice
+from django.core.management import BaseCommand
+
 
 URL = "https://ondemand.websol.barchart.com/getQuote.json"
 DATA = {
     "apikey": "2d8b3b803594b13e02a7dc827f4a63f8",
-    "symbols": "KC*1,KC*2,KC*3,KC*4,KC*5,KC*6",
+    "symbols": "RCN*1,RCN*2,RCN*3",
     "fields": "month,year,lastPrice",
 }
 
@@ -17,6 +16,7 @@ async def fetch_prices():
         async with session.post(url=URL, data=DATA) as response:
             result = await response.json()
             return result["results"]
+
 
 class Command(BaseCommand):
     help = "Обновляет цены на кофе из биржи и сохраняет в базу данных"
@@ -28,23 +28,6 @@ class Command(BaseCommand):
         asyncio.set_event_loop(loop)
         prices = loop.run_until_complete(fetch_prices())
 
-        for item in prices:
-            CoffeePrice.objects.update_or_create(
-                month=item["month"],
-                year=item["year"],
-                defaults={"price": item["lastPrice"]}
-            )
-
-        now = datetime.now()
-        current_month = now.month
-        current_year = now.year
-
-        CoffeePrice.objects.filter(
-            year__lt=current_year
-        ).delete()
-        CoffeePrice.objects.filter(
-            year=current_year,
-            month__lt=current_month
-        ).delete()
+        print(prices)
 
         self.stdout.write(self.style.SUCCESS("✅ Цены успешно обновлены"))

@@ -25,7 +25,8 @@ class CoffeePriceView(APIView):
             data.append({
                 "month": item.month,
                 "year": item.year,
-                "price": converted_price
+                "price": converted_price,
+                "last_day_fixation": item.last_day_fixation,
             })
         data.sort(key=lambda x: (x['year'], self.month_order.get(x['month'], 13)))
 
@@ -41,7 +42,8 @@ class CoffeePriceView(APIView):
             data.append({
                 "month": item.month,
                 "year": item.year,
-                "price": adjusted_price
+                "price": adjusted_price,
+                "last_day_fixation": item.last_day_fixation,
             })
         data.sort(key=lambda x: (x['year'], self.month_order.get(x['month'], 13)))
 

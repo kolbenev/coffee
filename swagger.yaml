@@ -1,0 +1,206 @@
+openapi: 3.0.3
+info:
+  title: COFEXIM API
+  version: 1.0.0
+servers:
+  - url: http://localhost/api/
+
+paths:
+  /catalog:
+    get:
+      summary: Получение каталога продукции
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductItem'
+
+  /news:
+    get:
+      summary: Получение списка новостей и акций
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NewsItem'
+
+  /prices:
+    get:
+      summary: Получение цен по месяцам
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MonthlyPrice'
+
+    post:
+      summary: Получение цен с учетом пользовательского дифа
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_dif:
+                  type: number
+                  format: float
+                  example: 0.05
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MonthlyPrice'
+
+
+  /callback-request:
+    post:
+      summary: Отправка заявки на обратный звонок
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CallbackRequest'
+      responses:
+        '200':
+          description: Заявка успешно принята
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Заявка успешно отправлена
+        '400':
+          description: Ошибка валидации данных
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Некорректные данные
+
+
+components:
+  schemas:
+    ProductItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Эфиопия Йиргачеф
+        short_description:
+          type: string
+          nullable: true
+          example: Ароматный кофе с нотками цитруса
+        photo:
+          type: string
+          format: uri
+          example: https://example.com/media/images/product_photos/ethiopia.jpg
+        screen:
+          type: string
+          nullable: true
+          example: light
+        grade:
+          type: string
+          nullable: true
+          example: A+
+        descriptor:
+          type: string
+          nullable: true
+          example: Цветочные, цитрус
+        price:
+          type: number
+          format: float
+          nullable: true
+          example: 1290.50
+        in_stock:
+          type: boolean
+          example: true
+
+    MonthlyPrice:
+      type: object
+      properties:
+        month:
+          type: string
+          example: May
+        year:
+          type: integer
+          example: 2025
+        price:
+          type: number
+          format: float
+          example: 9.43
+        last_day_fixation:
+          type: string
+          format: date
+          nullable: true
+          example: 2025-04-11
+
+    NewsItem:
+      type: object
+      properties:
+        text:
+          type: string
+          example: Скидки на кофе до конца месяца!
+        photo:
+          type: string
+          format: uri
+          example: https://example.com/news.jpg
+        date:
+          type: string
+          format: date
+          example: 2025-04-09
+
+    CallbackRequest:
+      type: object
+      required:
+        - name
+        - email
+        - phone
+        - preferred_time
+      properties:
+        name:
+          type: string
+          example: Иван
+          description: Имя клиента
+        email:
+          type: string
+          format: email
+          example: ivan@example.com
+          description: Email клиента
+        phone:
+          type: string
+          example: +7 (900) 123-45-67
+          description: Контактный номер телефона
+        preferred_time:
+          type: string
+          example: с 12:00 до 14:00
+          description: Удобное время для звонка
+        comment:
+          type: string
+          example: Перезвоните завтра, пожалуйста
+          description: Дополнительные пожелания или комментарий

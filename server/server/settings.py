@@ -16,7 +16,10 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@tn@(+im%qo1try!h&%40$4ztvmj%e)w)rf#*a*nif$31d8@kh'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "0.0.0.0",
+    "127.0.0.1"
+]
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

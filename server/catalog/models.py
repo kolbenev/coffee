@@ -9,6 +9,7 @@ class Product(models.Model):
     grade = models.CharField(max_length=10, default=None, null=True)
     descriptor = models.TextField(max_length=10, default=None, null=True)
     price = models.DecimalField(decimal_places=2, max_digits=10, default=None, null=True)
+    location = models.CharField(max_length=30, default=None, null=True)
     in_stock = models.BooleanField(default=True)
 
 

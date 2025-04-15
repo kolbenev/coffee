@@ -13,6 +13,7 @@ class ProductSerializer(serializers.ModelSerializer):
             "screen",
             "grade",
             "descriptor",
+            "location",
             "price",
             "in_stock",
         ]

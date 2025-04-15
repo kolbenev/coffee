@@ -20,36 +20,57 @@ class CoffeePriceView(APIView):
         "July": 7, "August": 8, "September": 9,
         "October": 10, "November": 11, "December": 12
     }
-    def get(self, request):
+
+    def get_expected_months(self):
+        return [
+            (
+                (datetime.today() + relativedelta(months=i)).year,
+                (datetime.today() + relativedelta(months=i)).month
+            )
+            for i in range(13)
+        ]
+
+    def prepare_data(self, user_dif=0):
+        expected = self.get_expected_months()
         prices = CoffeePrice.objects.all()
+        price_dict = {
+            (p.year, self.month_order.get(p.month)): p.price for p in prices
+        }
 
         data = []
-        for item in prices:
-            converted_price = round(item.price * 0.022046 * 1.2 * 1.03, 2)
-            data.append({
-                "month": item.month,
-                "year": item.year,
-                "price": converted_price,
-                "last_day_fixation": item.last_day_fixation,
-            })
-        data.sort(key=lambda x: (x['year'], self.month_order.get(x['month'], 13)))
+        last_price = None
 
+        for year, month_num in expected:
+            month_name = [k for k, v in self.month_order.items() if v == month_num][0]
+            base_price = price_dict.get((year, month_num))
+
+            if base_price is not None:
+                last_price = base_price
+            elif last_price is not None:
+                base_price = last_price + user_dif
+                last_price = base_price
+            else:
+                continue
+
+            converted = round(base_price * 0.022046 * 1.2 * 1.03, 2)
+            delivery_date = datetime(year=year, month=month_num, day=1) + relativedelta(months=2)
+            delivery_month_name = [k for k, v in self.month_order.items() if v == delivery_date.month][0]
+
+            data.append({
+                "month": month_name,
+                "year": year,
+                "price": converted,
+                "delivery_month": f"{delivery_month_name} {delivery_date.year}"
+            })
+
+        return data
+
+    def get(self, request):
+        data = self.prepare_data(user_dif=0)
         return Response(data)
 
     def post(self, request):
         user_dif = float(request.data.get('user_dif', 0))
-        prices = CoffeePrice.objects.all()
-
-        data = []
-        for item in prices:
-            adjusted_price = round((item.price + user_dif) * 0.022046 * 1.2 * 1.03, 2)
-            data.append({
-                "month": item.month,
-                "year": item.year,
-                "price": adjusted_price,
-                "last_day_fixation": item.last_day_fixation,
-            })
-        data.sort(key=lambda x: (x['year'], self.month_order.get(x['month'], 13)))
-
+        data = self.prepare_data(user_dif=user_dif)
         return Response(data)
 

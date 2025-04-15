@@ -1,6 +1,7 @@
 from django.db import models
 
 class CoffeePrice(models.Model):
+    name = models.CharField(max_length=100, default=None, null=True)
     month = models.CharField(max_length=20)
     year = models.PositiveIntegerField()
     price = models.FloatField()
@@ -8,4 +9,4 @@ class CoffeePrice(models.Model):
     last_day_fixation = models.DateField(default=None, null=True)
 
     class Meta:
-        unique_together = ('month', 'year')
+        unique_together = ('name', 'month', 'year')

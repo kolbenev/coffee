@@ -1,12 +1,16 @@
+from rest_framework.generics import ListAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 from .models import CoffeePrice
-from .serializers import CoffeePriceSerializer
+from .serializers import FuturesPriceSerializer
 
 
+class FuturesPrice(ListAPIView):
+    queryset = CoffeePrice.objects.all()
+    serializer_class = FuturesPriceSerializer
 
 
 class CoffeePriceView(APIView):

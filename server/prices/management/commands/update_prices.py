@@ -30,6 +30,7 @@ class Command(BaseCommand):
 
         for item in prices:
             CoffeePrice.objects.update_or_create(
+                name=item["symbol"],
                 month=item["month"],
                 year=item["year"],
                 defaults={"price": item["lastPrice"]}

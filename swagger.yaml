@@ -32,6 +32,19 @@ paths:
                 items:
                   $ref: '#/components/schemas/NewsItem'
 
+  /futures:
+    get:
+      summary: Получение списка актуальных курсов кофе.
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FuturesItem'
+
   /prices:
     get:
       summary: Получение цен по месяцам
@@ -159,6 +172,17 @@ components:
           format: date
           nullable: true
           example: 2025-04-11
+
+    FuturesItem:
+      type: object
+      properties:
+        name:
+          type: string
+          example: KCK25
+        price:
+          type: number
+          format: float
+          example: 362.6
 
     NewsItem:
       type: object

@@ -1,1 +1,1 @@
-export const MAIN_API =  "http://localhost/api/"
+export const MAIN_API =  "http://109.73.197.17/api/"

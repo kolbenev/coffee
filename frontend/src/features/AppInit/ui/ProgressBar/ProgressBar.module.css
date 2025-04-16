@@ -2,11 +2,11 @@
     position: relative;
     height: 1px;
     width: 100%;
-    background-color: var(--gray);
+    background-color:rgb(255, 255, 255, .30);
 }
 
 .line {
-    background-color: #484848;
+    background-color: #fff;
     height: 100%;
     transition: width 0.3s ease;
 }

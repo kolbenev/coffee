@@ -5,7 +5,7 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 import cls from "./AppInit.module.css";
 
-import logo from "@/shared/assets/logo.png";
+import logo from "@/shared/assets/logo-white.png";
 
 const AppInit = ({setLoadedWeb}) => {
   const [progress, setProgress] = useState(0);

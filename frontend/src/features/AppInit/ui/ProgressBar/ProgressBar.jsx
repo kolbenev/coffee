@@ -15,8 +15,8 @@ const ProgressBar = ({ onFinish, progress, setProgress }) => {
     } else {
       window.addEventListener("load", handleDomReady);
     }
-
     document.querySelector(".app").classList.add("overflow-loader");
+
     return () => {
       clearTimeout(minTimer);
       document.querySelector(".app").classList.remove("overflow-loader");

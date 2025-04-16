@@ -9,9 +9,6 @@ COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 RUN apt-get update && apt-get install -y netcat-openbsd && apt-get clean
 
-
 COPY . .
 
-RUN chmod +x wait_for_postgres.sh
-
-CMD ["./wait_for_postgres.sh", "gunicorn", "server.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py collectstatic --noinput && gunicorn server.wsgi:application --bind 0.0.0.0:8000"]

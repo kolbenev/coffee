@@ -59,9 +59,8 @@ MIDDLEWARE = [
 ]
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    "https://your-frontend-domain.com",
+    "http://109.73.197.17:3000/",
 ]
-
 ROOT_URLCONF = 'server.urls'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

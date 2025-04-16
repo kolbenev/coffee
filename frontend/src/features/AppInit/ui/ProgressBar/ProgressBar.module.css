@@ -1,0 +1,12 @@
+.progress {
+    position: relative;
+    height: 1px;
+    width: 100%;
+    background-color: var(--gray);
+}
+
+.line {
+    background-color: #484848;
+    height: 100%;
+    transition: width 0.3s ease;
+}

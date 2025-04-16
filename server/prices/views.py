@@ -9,7 +9,7 @@ from .serializers import FuturesPriceSerializer
 
 
 class FuturesPrice(ListAPIView):
-    queryset = CoffeePrice.objects.all()
+    queryset = CoffeePrice.objects.exclude(name__isnull=True)
     serializer_class = FuturesPriceSerializer
 
 
@@ -19,6 +19,13 @@ class CoffeePriceView(APIView):
         "April": 4, "May": 5, "June": 6,
         "July": 7, "August": 8, "September": 9,
         "October": 10, "November": 11, "December": 12
+    }
+
+    month_translation = {
+        "January": "Январь", "February": "Февраль", "March": "Март",
+        "April": "Апрель", "May": "Май", "June": "Июнь",
+        "July": "Июль", "August": "Август", "September": "Сентябрь",
+        "October": "Октябрь", "November": "Ноябрь", "December": "Декабрь"
     }
 
     def get_expected_months(self):
@@ -41,7 +48,9 @@ class CoffeePriceView(APIView):
         last_price = None
 
         for year, month_num in expected:
-            month_name = [k for k, v in self.month_order.items() if v == month_num][0]
+            month_name_en = [k for k, v in self.month_order.items() if v == month_num][0]
+            month_name_ru = self.month_translation[month_name_en]
+
             base_price = price_dict.get((year, month_num))
 
             if base_price is not None:
@@ -54,13 +63,13 @@ class CoffeePriceView(APIView):
 
             converted = round(base_price * 0.022046 * 1.2 * 1.03, 2)
             delivery_date = datetime(year=year, month=month_num, day=1) + relativedelta(months=2)
-            delivery_month_name = [k for k, v in self.month_order.items() if v == delivery_date.month][0]
+            delivery_month_name = self.month_translation[delivery_date.strftime("%B")]
 
             data.append({
-                "month": month_name,
+                "month": month_name_ru,
                 "year": year,
                 "price": converted,
-                "delivery_month": f"{delivery_month_name} {delivery_date.year}"
+                "delivery_month": f"{delivery_month_name}",
             })
 
         return data

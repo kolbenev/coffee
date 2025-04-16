@@ -3,6 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import CoffeePrice
 from .serializers import FuturesPriceSerializer
@@ -13,6 +15,7 @@ class FuturesPrice(ListAPIView):
     serializer_class = FuturesPriceSerializer
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class CoffeePriceView(APIView):
     month_order = {
         "January": 1, "February": 2, "March": 3,

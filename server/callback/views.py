@@ -1,9 +1,12 @@
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import CallbackRequestSerializer
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class CallbackRequestView(APIView):
     def post(self, request):
         serializer = CallbackRequestSerializer(data=request.data)

@@ -59,7 +59,6 @@ MIDDLEWARE = [
 ]
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    "http://109.73.197.17:3000/",
     "http://109.73.197.17:3000",
 ]
 ROOT_URLCONF = 'server.urls'

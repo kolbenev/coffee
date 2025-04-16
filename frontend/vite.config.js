@@ -6,6 +6,7 @@ export default defineConfig((env) => {
   const { mode } = env;
 
   return {
+    base: "/static/frontend/",
     plugins: [react()],
     css: {
       modules: {

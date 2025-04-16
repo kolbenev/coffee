@@ -15,7 +15,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', '!!!ЗАДАЙ_В_ENV!!!')
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = [
     "0.0.0.0",
     "127.0.0.1",
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'prices',
     'callback',
     'corsheaders',
+    'frontend'
 ]
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
@@ -99,5 +100,11 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    BASE_DIR / "frontend" / "static",
+]
+# TEMPLATES[0]['DIRS'] = [
+#     BASE_DIR / "frontend" / "templates",
+# ]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

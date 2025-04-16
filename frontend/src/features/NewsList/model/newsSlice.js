@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchGetItems } from "../../../shared/lib/fetchGetItem/fetchGetItems";
 
 export const getNews = createAsyncThunk("NEWS/GET", () =>
-  fetchGetItems("news")
+  fetchGetItems("news/")
 );
 
 const newsSlice = createSlice({

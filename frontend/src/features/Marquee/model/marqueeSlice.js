@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchGetItems } from "@/shared/lib/fetchGetItem/fetchGetItems";
 
 export const getMarqueeData = createAsyncThunk("MARQUEE/GET", () =>
-  fetchGetItems("futures")
+  fetchGetItems("futures/")
 );
 
 const marqueeSlice = createSlice({

@@ -37,27 +37,28 @@ class CoffeePriceView(APIView):
             for i in range(13)
         ]
 
-    def prepare_data(self, user_dif=0):
+    def prepare_data(self, user_dif=0.0):
         expected = self.get_expected_months()
         prices = CoffeePrice.objects.all()
         price_dict = {
-            (p.year, self.month_order.get(p.month)): p.price for p in prices
+            (p.year, self.month_order.get(p.month)): (p.price, p.last_day_fixation) for p in prices
         }
 
         data = []
         last_price = None
+        last_fixation = None
 
         for year, month_num in expected:
             month_name_en = [k for k, v in self.month_order.items() if v == month_num][0]
             month_name_ru = self.month_translation[month_name_en]
 
-            base_price = price_dict.get((year, month_num))
-
-            if base_price is not None:
+            base_data = price_dict.get((year, month_num))
+            if base_data is not None:
+                base_price, last_fixation = base_data
+                base_price += user_dif
                 last_price = base_price
             elif last_price is not None:
                 base_price = last_price + user_dif
-                last_price = base_price
             else:
                 continue
 
@@ -70,6 +71,7 @@ class CoffeePriceView(APIView):
                 "year": year,
                 "price": converted,
                 "delivery_month": f"{delivery_month_name}",
+                "last_day_fixation": last_fixation,
             })
 
         return data

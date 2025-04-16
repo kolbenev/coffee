@@ -1,0 +1,115 @@
+.block {
+    padding: 50px 35px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    position: relative;
+}
+
+.title {
+    font-size: 24px;
+    color: var(--white);
+    font-family: 'LT Superior';
+}
+
+.form {
+    margin-top: 53px;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 11px;
+}
+
+.item {
+    width: calc(50% - 5.5px);
+}
+
+.item.full-size {
+    width: 100%;
+}
+
+.label {
+    color: var(--white);
+    font-family: 'LT Superior';
+}
+
+.input {
+    width: 100%;
+    margin-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(235, 235, 235, .50);
+    display: block;
+    color: var(--white);
+}
+
+textarea.input {
+    resize: none;
+    height: 65px;
+}
+
+.input:focus {
+    outline: 0;
+}
+
+.input.error {
+    border-bottom: 1px solid #c91616;
+    color: #c91616;
+}
+
+.input.error::placeholder {
+    color: #c91616;
+}
+
+.input::placeholder {
+    color: var(--secondary-color);
+}
+
+.button {
+    margin-top: 32px;
+    font-size: 10px;
+}
+
+.top_arrow {
+    fill: var(--white-2);
+    position: absolute;
+    top: 34.71px;
+    right: 35px;
+}
+
+
+@media (max-width:768px) {
+    .block {
+        padding: 20px 10px;
+    }
+
+    .top_arrow {
+        top: 20px;
+        right: 10px;
+    }
+}
+
+
+@media (max-width:480px) {
+    .items {
+        gap: 20px 0;
+    }
+
+    .item {
+        width: 100%;
+    }
+
+    .button {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .top_arrow svg {
+        width: 11px;
+        height: 11px;
+    }
+}

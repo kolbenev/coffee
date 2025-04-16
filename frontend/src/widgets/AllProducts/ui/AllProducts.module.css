@@ -1,0 +1,33 @@
+.products {
+    padding: 100px 0 50px;
+}
+
+.top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width:768px) {
+    .products {
+        padding: 70px 0 30px;
+    }
+
+    .top {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px 0;
+    }
+}
+
+@media (max-width:480px) {
+    .wrapper {
+        flex-direction: column;
+        width: 100%;
+    }
+}

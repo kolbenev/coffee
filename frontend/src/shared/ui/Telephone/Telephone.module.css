@@ -1,0 +1,19 @@
+.telephone {
+    color: var(--primary-color);
+}
+
+.telephone span {
+    color: var(--secondary-color);
+    font-size: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .telephone {
+        font-size: 11px;
+    }
+
+    .telephone span {
+        font-size: 13px;
+    }
+}

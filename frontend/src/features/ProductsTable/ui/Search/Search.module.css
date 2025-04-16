@@ -1,0 +1,21 @@
+.input {
+    width: 377px;
+}
+
+.button {
+    width: 11px;
+    height: 11px;
+}
+
+
+@media (max-width:1000px) {
+    .input {
+        width: 200px;
+    }
+}
+
+@media (max-width:480px) {
+    .input {
+        width: 100%;
+    }
+}

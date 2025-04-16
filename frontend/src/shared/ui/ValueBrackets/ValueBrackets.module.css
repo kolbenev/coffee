@@ -1,0 +1,19 @@
+.value {
+    font-family: "LT Superior";
+    font-size: 10px;
+    color: var(--secondary-color);
+    flex-shrink: 0;
+}
+
+
+.section_top {
+    display: none;
+    margin-bottom: 50px;
+}
+
+
+@media (max-width:768px) {
+    .section_top {
+        display: block;
+    }
+}

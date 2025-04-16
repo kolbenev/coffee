@@ -1,0 +1,51 @@
+@import url(./reset.css);
+@import url(./fonts.css);
+
+
+
+:root {
+  --primary-color: #1B1B1B;
+  --secondary-color: #8A8A8A;
+  --blue: #00A6B6;
+  --white: #F9F8F5;
+  --white-2: #fff;
+  --gray: #EBEBEB;
+  --gray-2: #9F9F9F;
+  --gray-3: #CACACA;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 11px;
+  font-family: 'Helvetica';
+  color: var(--primary-color);
+  background-color: var(--white);
+  letter-spacing: -0.05em;
+}
+
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.main {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+
+@media (max-width:768px) {
+  body {
+    font-size: 12px;
+  }
+
+  .overflow {
+    max-height: 100vh;
+    overflow: hidden;
+  }
+}

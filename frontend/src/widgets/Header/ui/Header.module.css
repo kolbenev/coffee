@@ -1,0 +1,166 @@
+.header {
+    padding: 7px 0;
+    border-bottom: 1px solid #c1c1c14d;
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    gap: 0 20px;
+}
+
+.logo {
+    max-width: 62.22px;
+}
+
+.navigation {
+    display: flex;
+    gap: 0 20px;
+    margin-left: auto;
+}
+
+.link {
+    color: var(--primary-color);
+    font-size: 12px;
+}
+
+.button {
+    margin-left: 64px;
+    padding: 3px 20px;
+    border-radius: 4px;
+    background-color: var(--blue);
+    color: var(--white-2);
+}
+
+.menu {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    gap: 0 20px;
+    align-items: center;
+}
+
+.menu_button,
+.contacts,
+.text {
+    display: none;
+}
+
+
+@media (max-width:768px) {
+
+    .menu {
+        position: absolute;
+        top: 33px;
+        left: -200%;
+        right: 0;
+        bottom: 0;
+        background-color: var(--white);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .2s ease-in;
+        padding: 20px 10px;
+    }
+
+    .menu.active {
+        left: 0;
+        opacity: 1;
+        pointer-events: painted;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 10px 0;
+        overflow-y: auto;
+        z-index: 100;
+    }
+
+    .button {
+        display: none;
+    }
+
+    .contacts {
+        margin-top: 30px;
+        display: block;
+    }
+
+    .socials {
+        display: flex;
+        gap: 0 15px;
+        margin-top: 18px;
+    }
+
+    .social_link {
+        max-width: 30px;
+    }
+
+    .telephone {
+        margin-top: 30px;
+    }
+
+    .text {
+        color: var(--gray-3);
+        margin-top: auto;
+        display: block;
+        font-size: 10px;
+    }
+
+    .navigation {
+        flex-direction: column;
+        margin: 0;
+        gap: 5px 0;
+        width: 100%;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--gray);
+    }
+
+    .link {
+        font-size: 24px;
+    }
+
+    .menu_button {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .menu_button.active_button .line {
+        width: 0;
+    }
+
+    .line {
+        display: block;
+        width: 15px;
+        height: 1px;
+        position: relative;
+        background-color: var(--primary-color);
+        transition: .3s all ease-in;
+    }
+
+    .line::after,
+    .line::before {
+        content: '';
+        position: absolute;
+        width: 15px;
+        height: 1px;
+        background-color: var(--primary-color);
+        right: 0;
+        transition: .3s all ease-in;
+    }
+
+    .line::after {
+        transform: translateY(3px);
+
+    }
+
+    .menu_button.active_button .line::after {
+        transform: rotate(45deg);
+
+    }
+
+    .line::before {
+        transform: translateY(-3px);
+    }
+
+    .menu_button.active_button .line::before {
+        transform: rotate(-45deg);
+    }
+}

@@ -1,0 +1,26 @@
+.news {
+    padding: 73px 0 31px;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.button {
+    margin: 50px auto 0;
+}
+
+
+@media (max-width:768px) {
+    .news {
+        padding-top: 10px;
+    }
+
+    .top {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,12 @@
+.answer {
+    margin-top: 10px;
+}
+
+.answer.successful {
+    color: rgb(134, 224, 43);
+}
+
+
+.answer.error {
+    color: rgb(228, 59, 33);
+}

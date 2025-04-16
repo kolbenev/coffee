@@ -1,0 +1,15 @@
+.list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: rgb(193, 193, 193, .30) 1px solid;
+
+}
+
+
+@media (max-width:768px) {
+    .last {
+        display: none;
+    }
+}
+

@@ -1,0 +1,73 @@
+.filter {
+    position: relative;
+}
+
+.button {
+    width: 153px;
+    transition: .1s all ease-in;
+}
+
+.button.active {
+    background-color: #F9F8F5;
+}
+
+.button.active svg {
+    transform: rotate(180deg);
+}
+
+.dropdown {
+    padding: 10px;
+    background-color: #F9F8F5;
+    border: 1px solid var(--gray);
+    border-radius: 4px;
+    position: absolute;
+    bottom: -5px;
+    width: 100%;
+    transform: translateY(120%);
+    transition: .1s all ease-in;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.dropdown.active {
+    opacity: 1;
+    transform: translateY(100%);
+    pointer-events: painted;
+}
+
+.filter_buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+    margin-top: 10px;
+}
+
+.filter_button {
+    text-align: start;
+    display: flex;
+    gap: 0 6px;
+    color: var(--secondary-color);
+
+}
+
+.filter_button span {
+    display: block;
+    flex-shrink: 0;
+    width: 11px;
+    height: 11px;
+    border: 1px solid var(--gray);
+}
+
+.filter_button.active span {
+    background-color: var(--gray);
+}
+
+@media (max-width:480px) {
+    .button {
+        width: 100%;
+    }
+}

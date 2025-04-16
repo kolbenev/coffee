@@ -1,0 +1,98 @@
+.about {
+    padding: 70px 0 30px;
+}
+
+.content {
+    margin-top: 50px;
+    display: flex;
+    gap: 0 10px;
+}
+
+.img {
+    border-radius: 4px;
+}
+
+.box {
+    padding: 15px;
+    background-color: var(--primary-color);
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    border-radius: 4px;
+    color: var(--white);
+    font-family: 'LT Superior';
+}
+
+.arrow {
+    align-self: flex-end;
+}
+
+
+
+.first {
+    width: 51.38%;
+}
+
+.second {
+    width: 23.45%;
+}
+
+
+
+@media (max-width:1200px) {
+    .box {
+        font-size: 16px;
+    }
+}
+
+
+@media (max-width:768px) {
+
+    .about {
+        padding-top: 10px;
+    }
+
+    .content {
+        min-height: 450px;
+        align-items: flex-end;
+        background: url(../assets/background.png) no-repeat center / cover;
+        padding: 10px;
+        border-radius: 4px;
+    }
+
+    .first,
+    .second {
+        display: none;
+    }
+
+    .box {
+        max-width: 150px;
+        height: 180px;
+    }
+
+    .text {
+        text-transform: capitalize;
+    }
+
+    .text span {
+        display: none;
+    }
+
+}
+
+@media (max-width:480px) {
+
+    .content {
+        margin-top: 48px;
+    }
+
+    .box {
+        max-width: 115px;
+        height: 120px;
+        font-size: 12px;
+        padding: 10px;
+    }
+}

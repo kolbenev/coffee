@@ -1,0 +1,60 @@
+.button {
+    width: fit-content;
+    fill: var(--white-2);
+}
+
+.button span {
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+    align-items: center;
+}
+
+.button.flex {
+    display: flex;
+    gap: 0 3px;
+}
+
+.arrow {
+    background-color: var(--blue);
+    width: 30px;
+    height: 30px;
+}
+
+.value {
+    background-color: var(--blue);
+    height: 30px;
+    color: var(--white-2);
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+.button.black .arrow,
+.button.black .value {
+    background-color: var(--primary-color);
+}
+
+.button.white {
+    fill: var(--primary-color);
+}
+
+.button.white .arrow,
+.button.white .value {
+    background-color: var(--white-2);
+}
+
+
+@media (max-width:480px) {
+    .button {
+        font-size: 11px;
+    }
+
+    .only_arrow {
+        width: 20px;
+        height: 20px;
+    }
+
+    .only_arrow svg {
+        transform: scale(.7);
+    }
+}

@@ -1,0 +1,21 @@
+.diff {
+    margin-top: 50px;
+}
+
+.title {
+    color: #fff;
+}
+
+.form {
+    max-width: 300px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+
+.button {
+    width: 100%;
+}

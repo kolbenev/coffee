@@ -1,0 +1,175 @@
+.footer {
+    padding-bottom: 15px;
+    letter-spacing: -0.03em;
+}
+
+.inner {
+    border-top: 1px solid rgb(193, 193, 193, .30);
+    padding-top: 50px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 20px;
+}
+
+.text {
+    max-width: 362px;
+    font-size: 10px;
+    color: var(--gray-3);
+    margin-top: 50px;
+}
+
+.logo {
+    max-width: 200px;
+    display: block;
+}
+
+.navigation {
+    display: flex;
+    gap: 0 70px;
+    flex-shrink: 0;
+}
+
+.block {
+    display: flex;
+    gap: 0 40px;
+}
+
+.name {
+    position: relative;
+    font-size: 12px;
+    font-family: 'LT Superior';
+}
+
+.name_num {
+    position: absolute;
+    top: -2px;
+    transform: translateY(-50%);
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    font-family: 'Helvetica';
+}
+
+.name_num span {
+    font-family: 'LT Superior';
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+}
+
+.item {
+    color: var(--secondary-color);
+    font-size: 12px;
+}
+
+.bottom {
+    border-top: 1px solid rgb(193, 193, 193, .30);
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.bottom_link {
+    color: var(--secondary-color);
+}
+
+.llc {
+    color: #9F9F9F;
+    margin-left: auto;
+}
+
+.copyright {
+    color: #959595;
+    margin-left: 30px;
+}
+
+.telephone {
+    order: -1;
+}
+
+.address,
+.socials,
+.telephone_mobile {
+    display: none;
+}
+
+@media (max-width:768px) {
+
+    .inner {
+        padding-top: 30px;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .text {
+        display: none;
+    }
+
+    .navigation {
+        gap: 45px 63px;
+        flex-wrap: wrap;
+    }
+
+    .socials {
+        width: 100%;
+        display: flex;
+        gap: 0 15px;
+        margin-top: 20px;
+    }
+
+    .social_link {
+        max-width: 30px;
+    }
+
+    .block {
+        flex-direction: column;
+        gap: 15px 0;
+    }
+
+    .block:nth-child(3) a,
+    .llc,
+    .telephone,
+    .right_link {
+        display: none;
+    }
+
+
+    .address {
+        display: block;
+        max-width: 150px;
+        font-size: 11px;
+    }
+
+    .telephone_mobile {
+        display: block;
+        width: 100%;
+        margin-top: 9px;
+        font-size: 20px;
+    }
+
+    .footer .telephone_mobile span {
+        font-size: 20px;
+    }
+
+    .bottom {
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+
+}
+
+@media (max-width:480px) {
+    .logo {
+        max-width: 120px;
+    }
+}

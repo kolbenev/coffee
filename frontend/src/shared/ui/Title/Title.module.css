@@ -1,0 +1,50 @@
+.wrapper {
+    max-width: 620px;
+}
+
+.wrapper.center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.title {
+    text-transform: uppercase;
+    font-size: 37px;
+    font-weight: 500;
+    font-family: 'LT Superior';
+}
+
+.italic {
+    font-family: 'Baskerville';
+    font-style: italic;
+}
+
+.text {
+    color: var(--secondary-color);
+    margin-top: 15px;
+}
+
+.wrapper.wrapper.center .text {
+    margin: 15px auto 0;
+}
+
+@media (max-width:768px) {
+    .wrapper.center {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .text {
+        margin: 15px 0 0;
+    }
+}
+
+@media (max-width:480px) {
+    .title {
+        font-size: 18px;
+    }
+}

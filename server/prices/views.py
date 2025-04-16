@@ -1,4 +1,5 @@
 from rest_framework.generics import ListAPIView
+from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from datetime import datetime
@@ -17,6 +18,8 @@ class FuturesPrice(ListAPIView):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class CoffeePriceView(APIView):
+    authentication_classes = []
+    permission_classes = [AllowAny]
     month_order = {
         "January": 1, "February": 2, "March": 3,
         "April": 4, "May": 5, "June": 6,

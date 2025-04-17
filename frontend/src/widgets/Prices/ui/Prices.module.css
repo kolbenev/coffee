@@ -67,20 +67,18 @@
 }
 
 @media (max-width:768px) {
-    .prices {
-        padding-top: 0;
-    }
 
     .top {
-        margin-top: 45px;
-    }
-
-    .top .title {
         display: none;
     }
 
     .calculation {
         grid-template-columns: 100%;
+        padding: 0 20px;
+    }
+
+    .bottom {
+        padding: 0 20px;
     }
 
     .box_title {
@@ -98,13 +96,28 @@
     .text {
         max-width: 180px;
     }
+
     .button_arrow span {
         width: 31px;
         height: 31px;
     }
 
-    .button_arrow svg{
+    .button_arrow svg {
         width: 10px;
         transform: scale(1);
+    }
+
+    .inner {
+        padding: 0;
+    }
+}
+
+@media (max-width:480px) {
+    .calculation {
+        padding: 0 10px;
+    }
+
+    .bottom {
+        padding: 0 10px;
     }
 }

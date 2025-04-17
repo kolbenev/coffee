@@ -13,11 +13,15 @@ const PricesTable = () => {
     <ScrollMenu
       itemClassName={cls.scroll_item}
       scrollContainerClassName={cls.scroll_wrapper}
+      wrapperClassName={cls.main_wrapper}
     >
       <table className={cls.table}>
         <thead>
-          <tr>
-            <th className={cls.th}>Месяц контракта</th>
+          <tr className={cls.tr}>
+            <th className={cls.th}>
+              <span>Месяц контракта</span>
+              <span className={cls.mobile_key}>Мес</span>
+            </th>
             <PricesTableItem
               className={cls.th}
               data={prices}
@@ -27,24 +31,34 @@ const PricesTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr className={cls.tr}>
             <td className={cls.td}>
-              DDP Питер-Москва <br /> цена с учетом НДС кг/$
+              <span>
+                DDP Питер-Москва <br /> цена с учетом НДС кг/$
+              </span>
+              <span className={cls.mobile_key}>DDP с НДС кг/$</span>
             </td>
             <PricesTableItem className={cls.td} data={prices} name={"price"} />
           </tr>
-          <tr>
-            <td className={cls.td}>Дата прихода груза</td>
+          <tr className={cls.tr}>
+            <td className={cls.td}>
+              <span>Дата прихода груза</span>
+              <span className={cls.mobile_key}>Приход</span>
+            </td>
             <PricesTableItem
               className={cls.td}
               data={prices}
               name={"delivery_month"}
             />
           </tr>
-          <tr>
+          <tr className={cls.tr}>
             <td className={cls.td}>
-              Последний день <br />
-              фиксации кофе
+              <span>
+                {" "}
+                Последний день <br />
+                фиксации кофе
+              </span>
+              <span className={cls.mobile_key}>Фиксация</span>
             </td>
             <PricesTableItem
               className={cls.td}

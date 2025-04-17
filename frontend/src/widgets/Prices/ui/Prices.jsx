@@ -12,7 +12,7 @@ const Prices = () => {
   return (
     <section className={cls.prices}>
       <Marquee />
-      <Container>
+      <Container className={cls.inner}>
         <div className={cls.top}>
           <Title title="КАЛЬКУЛЯТОР" italic="ЦЕНЫ" center={false} />
           <h5 className={cls.title}>Бразилия ориентированная цена</h5>

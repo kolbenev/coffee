@@ -4,13 +4,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', '!!!ЗАДАЙ_В_ENV!!!')
 DEBUG = False
-ALLOWED_HOSTS = [
-    "0.0.0.0",
-    "127.0.0.1",
-    "localhost",
-    "109.73.197.17",
-    "backend",
-]
+IP_HOST = os.getenv('HOST', 'http://localhost')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -21,6 +15,9 @@ DATABASES = {
         'PORT': os.getenv('POSTGRES_PORT', '5432'),
     }
 }
+ALLOWED_HOSTS = [
+    IP_HOST,
+]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,6 +34,7 @@ INSTALLED_APPS = [
     'frontend'
 ]
 MIDDLEWARE = [
+    'server.middleware.allowed_ips.AllowedIPMiddleware',
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -48,8 +46,7 @@ MIDDLEWARE = [
 ]
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    "http://109.73.197.17:80",
-    "http://localhost:3000",
+    IP_HOST,
 ]
 ROOT_URLCONF = 'server.urls'
 MEDIA_URL = '/media/'
@@ -94,3 +91,10 @@ if DEBUG:
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 TEMPLATES[0]['DIRS'] = [BASE_DIR / 'frontend' / 'templates']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True

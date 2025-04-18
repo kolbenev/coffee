@@ -6,7 +6,7 @@ servers:
   - url: http://localhost/api/
 
 paths:
-  /catalog:
+  /catalog/:
     get:
       summary: Получение каталога продукции
       responses:
@@ -19,7 +19,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/ProductItem'
 
-  /news:
+  /news/:
     get:
       summary: Получение списка новостей и акций
       responses:
@@ -32,7 +32,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/NewsItem'
 
-  /futures:
+  /futures/:
     get:
       summary: Получение списка актуальных курсов кофе.
       responses:
@@ -45,7 +45,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/FuturesItem'
 
-  /prices:
+  /prices/:
     get:
       summary: Получение цен по месяцам
       responses:
@@ -82,7 +82,7 @@ paths:
                   $ref: '#/components/schemas/MonthlyPrice'
 
 
-  /callback-request:
+  /callback-request/:
     post:
       summary: Отправка заявки на обратный звонок
       requestBody:

@@ -3,5 +3,5 @@ POSTGRES_USER=USER
 POSTGRES_PASSWORD=PASS
 POSTGRES_HOST=HOST
 POSTGRES_PORT=PORT
-SECRET_KEY=
-DJANGO_SSL_REDIRECT=
+SECRET_KEY=YOUR_DJANGO_SECKRET_KEY (example: django-insecure-@tn@(+is%dn4sgh!h&%40$4ttfaj%e)w)rf#*b*naf$31d8@kh)
+HOST=YOUR_HOST (example: http://localhost)

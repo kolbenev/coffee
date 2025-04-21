@@ -2,7 +2,6 @@ import React from "react";
 import Navigation from "./Navigation";
 import Socials from "./Socials";
 import Telephone from "@/shared/ui/Telephone/Telephone";
-import { Link } from "react-router-dom";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import cls from "./Header.module.css";
@@ -14,7 +13,6 @@ const Menu = ({ activeMenu }) => {
       <a className={cls.button} href={'#contacts'}>Связаться</a>
       <div className={cls.contacts}>
         <Telephone className={cls.telephone} />
-
         <Socials />
       </div>
       <p className={cls.text}>

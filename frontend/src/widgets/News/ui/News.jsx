@@ -19,7 +19,7 @@ const News = ({ className, brackets = true }) => {
         </div>
 
         <NewsList />
-        <ButtonArrow className={cls.button} to="#">
+        <ButtonArrow className={cls.button} to="/news">
           Показать больше
         </ButtonArrow>
       </Container>

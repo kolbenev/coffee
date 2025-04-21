@@ -1,10 +1,13 @@
+import { contacts } from "@/shared/constants/contacts";
+
+
 export const socialsConfig = [
   {
     value: "WhatsApp",
-    path: "https://google.com",
+    path: contacts.whatsApp,
   },
   {
     value: "Telegram",
-    path: "#2",
+    path: contacts.telegram
   },
 ];

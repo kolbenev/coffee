@@ -18,7 +18,7 @@ const Products = () => {
           предпочтениям.
         </Title>
         <ProductsList />
-        <ButtonArrow className={cls.button}>Перейти к каталогу</ButtonArrow>
+        <ButtonArrow className={cls.button} to='/catalog'>Перейти к каталогу</ButtonArrow>
       </Container>
     </section>
   );

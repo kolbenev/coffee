@@ -2,6 +2,7 @@ import React from "react";
 import Title from "@/shared/ui/Title/Title";
 import Telephone from "@/shared/ui/Telephone/Telephone";
 import Item from "./Item";
+import { contacts } from "@/shared/constants/contacts";
 
 import cls from "./Contacts.module.css";
 
@@ -15,10 +16,10 @@ const Contacts = () => {
       <div className={cls.items}>
         <Item name="Связаться с нами">
           <div className={cls.flex}>
-            <a className={cls.value} href="#">
+            <a className={cls.value} href={contacts.telegram}>
               Telegram
             </a>
-            <a className={cls.value} href="#">
+            <a className={cls.value} href={contacts.whatsApp}>
               WhatsApp
             </a>
           </div>
@@ -26,7 +27,7 @@ const Contacts = () => {
         <Item name="Связаться с нами">
           <div className={cls.flex}>
             <p className={cls.value}>
-              Москва, ул. Чертановская, д.1В, корп. 1, кв. 238
+              {contacts.address}
             </p>
           </div>
         </Item>
@@ -34,7 +35,7 @@ const Contacts = () => {
           <Telephone className={cls.value_b} />
         </Item>
         <Item name={"Email"} className={cls.mail}>
-          <a className={cls.value_b} href="mailto:support@cofexim.com">support@cofexim.com</a>
+          <a className={cls.value_b} href={contacts.mail.href}>{contacts.mail.value}</a>
         </Item>
       </div>
     </div>

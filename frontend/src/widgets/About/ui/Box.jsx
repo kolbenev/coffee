@@ -9,7 +9,7 @@ const Box = () => {
       <p className={cls.text}>
         <span>Узнайте</span> подробнее <span>о нашей истории</span>
       </p>
-      <ButtonArrow className={cls.arrow} to="#" />
+      <ButtonArrow className={cls.arrow} to="/contacts" />
     </div>
   );
 };

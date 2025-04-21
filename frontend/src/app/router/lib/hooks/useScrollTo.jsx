@@ -5,7 +5,10 @@ export const useScrollTo = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant', // или 'auto'
+    });
   }, [pathname]);
 };
 

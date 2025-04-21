@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "./Box";
-import ButtonArrow from '@/shared/ui/ButtonArrow/ButtonArrow'
+import ButtonArrow from "@/shared/ui/ButtonArrow/ButtonArrow";
 import { DiffForm } from "@/features/DiffForm";
 
 import cls from "./Prices.module.css";
@@ -24,7 +24,7 @@ const Calculation = () => {
             Оставьте заявку, чтобы мы могли связаться с вами и предоставить
             личный расчет стоимости кофе
           </p>
-          <ButtonArrow className={cls.button_arrow} white={true}/>
+          <ButtonArrow className={cls.button_arrow} white={true}  href='#contacts' />
         </div>
       </Box>
     </div>

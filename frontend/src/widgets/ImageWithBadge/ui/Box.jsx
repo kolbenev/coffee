@@ -17,7 +17,7 @@ const Box = () => {
           Рассчитайте стоимость кофе по актуальным ценам с помощью нашего
           калькулятора
         </p>
-        <ButtonArrow className={cls.button} to="#" black={true}>
+        <ButtonArrow className={cls.button} to="/prices" black={true}>
           Посмотреть цены
         </ButtonArrow>
       </div>
